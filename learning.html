@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Learning Platform - CareerAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+    <link rel="stylesheet" href="assets/css/learning.css">
+</head>
+
+<body>
+    <div id="course-entry-overlay" class="course-entry-overlay">
+        <div class="overlay-content">
+            <div class="gfg-branding" style="background: var(--primary);">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Learning Mode</span>
+            </div>
+            <h1 id="overlay-course-title">Course Learning</h1>
+            <p>Learn with structured text course articles from trusted educational sources.</p>
+            <button id="start-course-btn" class="play-button" style="background: var(--primary);">
+                <i class="fa-solid fa-book-open"></i>
+                <span>START LEARNING</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <a href="index.html">Career<span>AI</span></a>
+            </div>
+
+            <div class="course-info">
+                <div class="course-icon" id="course-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h2 id="course-title">Course Learning</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 25%"></div>
+                    </div>
+                    <span>Learning Path</span>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <h3>Course Content</h3>
+                <ul id="lesson-list"></ul>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="user-details">
+                    <span id="user-name">Student</span>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumbs">
+                    <a href="courses.html">Courses</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span id="current-lesson">Select a topic</span>
+                </div>
+                <div class="actions">
+                    <button class="btn-icon" id="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+                    <button class="btn-primary" id="ask-ai-btn">
+                        <i class="fa-solid fa-microphone"></i> Ask Tutor
+                    </button>
+                </div>
+            </header>
+
+            <div class="workspace">
+                <div class="panel left-panel">
+                    <div id="course-content-viewer" class="virtual-classroom-container" style="position: relative; width: 100%; min-height: 220px; max-height: calc(100vh - 280px); background: rgba(15, 23, 42, 0.75); border-radius: 12px; overflow: auto; margin-bottom: 20px; border: 2px solid #334155; padding: 24px;">
+                        <h3 style="margin:0 0 12px 0; color: var(--primary);">
+                            <i class="fa-solid fa-book-open"></i> Course Article
+                        </h3>
+                        <p style="margin:0; color:#cbd5e1; line-height:1.7;">
+                            Select a topic from the sidebar to load full content with images.
+                        </p>
+                    </div>
+
+                    <div class="ai-chat-interface" id="ai-chat-interface">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message ai">
+                                <p>Pick a topic from the sidebar and I can help explain it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel right-panel">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="lecture">
+                            <i class="fa-solid fa-book-open"></i> Lecture Notes
+                        </button>
+                        <button class="tab" data-tab="compiler">
+                            <i class="fa-solid fa-code"></i> Compiler
+                        </button>
+                        <button class="tab" data-tab="quiz">
+                            <i class="fa-solid fa-circle-question"></i> Quiz
+                        </button>
+                        <button class="tab" data-tab="exercises">
+                            <i class="fa-solid fa-list-check"></i> Exercises
+                        </button>
+                        <button class="tab" data-tab="projects">
+                            <i class="fa-solid fa-rocket"></i> Project
+                        </button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="tab-lecture" class="content-pane active">
+                            <div class="markdown-content" id="lecture-content">
+                                <h1>Course Content</h1>
+                                <p>Select a topic from the left sidebar to view the content.</p>
+                            </div>
+                        </div>
+
+                        <div id="tab-compiler" class="content-pane">
+                            <div class="editor-container" id="monaco-editor-container"></div>
+                            <div class="card" style="margin:10px 0;padding:10px;">
+                                <label for="compiler-stdin" style="display:block;color:#cbd5e1;font-size:12px;margin-bottom:6px;">Program Input (stdin)</label>
+                                <textarea id="compiler-stdin" rows="4" placeholder="Enter input for your program..." style="width:100%;background:#0f172a;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px;resize:vertical;"></textarea>
+                            </div>
+                            <div class="terminal-container">
+                                <div class="terminal-header">
+                                    <span>Terminal</span>
+                                    <label style="display:flex;align-items:center;gap:6px;color:#cbd5e1;font-size:12px;">
+                                        <span>Language</span>
+                                        <select id="compiler-language-select" style="background:#0f172a;color:#e2e8f0;border:1px solid #334155;border-radius:6px;padding:4px 8px;">
+                                            <option value="javascript" selected>JavaScript</option>
+                                            <option value="python">Python</option>
+                                            <option value="typescript">TypeScript</option>
+                                            <option value="java">Java</option>
+                                            <option value="c">C</option>
+                                            <option value="cpp">C++</option>
+                                            <option value="csharp">C#</option>
+                                            <option value="go">Go</option>
+                                            <option value="rust">Rust</option>
+                                            <option value="php">PHP</option>
+                                            <option value="ruby">Ruby</option>
+                                        </select>
+                                    </label>
+                                    <button class="btn-small" id="run-code-btn"><i class="fa-solid fa-play"></i> Run</button>
+                                    <button class="btn-small" id="clear-output-btn"><i class="fa-solid fa-eraser"></i> Clear</button>
+                                </div>
+                                <div class="terminal-output" id="terminal-output">
+                                    <span class="system-msg">> Ready to execute code...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-quiz" class="content-pane">
+                            <div id="topic-quiz-container"></div>
+                        </div>
+
+                        <div id="tab-exercises" class="content-pane">
+                            <div class="exercise-list" id="exercise-list"></div>
+                        </div>
+
+                        <div id="tab-projects" class="content-pane">
+                            <div class="project-workspace" id="project-workspace"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="assets/js/learning.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+## Why Learn JavaScript?
+- Core language for web development, enabling dynamic and interactive features in websites with fewer lines of code.
+- Highly in demand, offering many job opportunities in Frontend, Backend (Node.js), and Full Stack Development.
+- Supports powerful frameworks and libraries like React, Angular, Vue.js, Node.js, and Express.js, widely used in modern web applications.
+- Object-oriented and event-driven language, ideal for building scalable and responsive applications.
+- Cross-platform and runs directly in all modern web browsers without the need for installation.
+- Major companies like Google, Facebook, and Amazon use JavaScript in their tech stacks.
+
+## Write and Run Your First JavaScript Program
+Mostly browsers can run JavaScript directly, so there's no need to install a compiler. However, the built-in browser console isn’t very beginner-friendly. That’s why we’ve added an online editor below to help you get started easily.
+
+```
+console.log("Hello World!");
+```
+
+
+```
+console.log("Hello World!");
+```
+
+
+```
+Hello World!
+```
+
+Before we start, we recommend you to edit the code and try to print your own name.
+
+## Fundamentals
+- [Introduction](https://www.geeksforgeeks.org/javascript/introduction-to-javascript/)
+- Quiz: [JS Basics](https://www.geeksforgeeks.org/quizzes/javascript-basics-1/)
+- [Using JS in HTML](https://www.geeksforgeeks.org/javascript/where-to-put-javascript-in-an-html-document/) 
+- [Variables and Datatypes](https://www.geeksforgeeks.org/javascript/variables-datatypes-javascript/)
+- Quiz: [Variables & Data Types](https://www.geeksforgeeks.org/quizzes/variables-and-data-types-1/)
+- [Operators](https://www.geeksforgeeks.org/javascript/javascript-operators/)
+- [Type Conversion and Coercion](https://www.geeksforgeeks.org/javascript/type-conversion-and-type-coercion-in-javascript/)
+- [Control Flow Statements](https://www.geeksforgeeks.org/javascript/javascript-control-flow-statements/)
+- Quiz: [Operators](https://www.geeksforgeeks.org/quizzes/javascript-operators/), [Control Flow](https://www.geeksforgeeks.org/quizzes/control-flow/)
+- [Scope](https://www.geeksforgeeks.org/javascript/understanding-variable-scopes-in-javascript/)
+- [Browser console](https://www.geeksforgeeks.org/javascript/console-in-javascript/)
+[Introduction](https://www.geeksforgeeks.org/javascript/introduction-to-javascript/)
+[JS Basics](https://www.geeksforgeeks.org/quizzes/javascript-basics-1/)
+[Using JS in HTML](https://www.geeksforgeeks.org/javascript/where-to-put-javascript-in-an-html-document/)
+[Variables and Datatypes](https://www.geeksforgeeks.org/javascript/variables-datatypes-javascript/)
+[Variables & Data Types](https://www.geeksforgeeks.org/quizzes/variables-and-data-types-1/)
+[Operators](https://www.geeksforgeeks.org/javascript/javascript-operators/)
+[Type Conversion and Coercion](https://www.geeksforgeeks.org/javascript/type-conversion-and-type-coercion-in-javascript/)
+[Control Flow Statements](https://www.geeksforgeeks.org/javascript/javascript-control-flow-statements/)
+[Operators](https://www.geeksforgeeks.org/quizzes/javascript-operators/)
+[Control Flow](https://www.geeksforgeeks.org/quizzes/control-flow/)
+[Scope](https://www.geeksforgeeks.org/javascript/understanding-variable-scopes-in-javascript/)
+[Browser console](https://www.geeksforgeeks.org/javascript/console-in-javascript/)

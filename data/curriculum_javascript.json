@@ -1,0 +1,163 @@
+[
+    {
+        "level": 1,
+        "title": "The Foundation: Hello World",
+        "intro": "Welcome to Level 1. Every professional journey starts with the first line of code. We are setting up your workspace and understanding the basic building blocks of the web.",
+        "modules": [
+            {
+                "id": "l1-m1",
+                "title": "What is JavaScript?",
+                "summary": "Slide 1: The Engine of the Web. JavaScript is a versatile programming language that brings life to websites. Why it matters? It is the only language that runs natively in every web browser. Slide 2: Definition. JavaScript is an interpreted, high-level language used for both client-side and server-side development. Slide 3: Example. You can change text, animate images, and process data without refreshing the page. Slide 4: Summary. JS is the most essential tool for any web developer today.",
+                "type": "lecture"
+            },
+            {
+                "id": "l1-m2",
+                "title": "Variables: const & let",
+                "summary": "Slide 1: Data Containers. A variable is a named storage for data. Slide 2: Why it matters? We need to keep track of user names, scores, and settings. Slide 3: Syntax. Always use 'const' for values that don't change and 'let' for values that will. Slide 4: Example. const pi = 3.14; let score = 0; Slide 5: Common Mistakes. Never use 'var' in modern JS because it can cause scope bugs. Slide 6: Summary. Use descriptive names and stick to ES6 variables.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "title": "Data Types & Precision",
+        "intro": "Level 2 is about accuracy. In professional apps, data integrity is paramount. We'll master Types and basic math.",
+        "modules": [
+            {
+                "id": "l2-m1",
+                "title": "Strings & Templating",
+                "summary": "Slide 1: Handling Text. Strings represent text in JS. Slide 2: Why it matters? Formatting user messages and building dynamic HTML sentences. Slide 3: Syntax. Use backticks for Template Literals to inject variables easily. Slide 4: Example. `Hello ${name}, welcome back!` Slide 5: Tip. Always escape quotes when not using template literals. Slide 6: Summary. Master strings to build interactive UIs.",
+                "type": "lecture"
+            },
+            {
+                "id": "l2-m2",
+                "title": "Numbers & Logic Flow",
+                "summary": "Slide 1: Math in Code. Numbers handle everything from counting to currency. Slide 2: Equality check. Professionals use triple equals for strict type checking. Slide 3: Syntax. Use comparison operators like greater than or less than. Slide 4: Common Pitfalls. Watch out for 'NaN' when doing math with undefined variables. Slide 5: Summary. Numbers are the backbone of application logic.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "title": "Decision Making: Logic",
+        "intro": "Now we transition from simple storage to active logic. Level 3 focuses on making decisions with Conditionals.",
+        "modules": [
+            {
+                "id": "l3-m1",
+                "title": "Conditionals (If/Else)",
+                "summary": "Slide 1: Branching Logic. Conditional statements act as the 'brain' of your code. Slide 2: Why it matters? Essential for showing 'Login' vs 'Profile' buttons. Slide 3: Syntax. The 'if' block checks a condition; 'else' handles the fallback. Slide 4: Practical Example. If age is over 18, allow access, otherwise show warning. Slide 5: Summary. Logic gates define the user experience.",
+                "type": "lecture"
+            },
+            {
+                "id": "l3-m2",
+                "title": "The Power of Loops",
+                "summary": "Slide 1: Automation. Loops repeat an action until a condition is met. Slide 2: Why it matters? Processing large lists of data without writing repetitive code. Slide 3: Syntax. The 'for' loop is the industry standard for controlled iteration. Slide 4: Common Trap. Avoid 'Infinite Loops' that crash your user's browser! Slide 5: Summary. Loops provide the scale for modern applications.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 4,
+        "title": "Data Collections: Arrays",
+        "intro": "Level 4 is about managing groups of data. Arrays are the most common way to store lists of everything from products to users.",
+        "modules": [
+            {
+                "id": "l4-m1",
+                "title": "Creating & Accessing Arrays",
+                "summary": "Slide 1: What is an Array? An array is a list-like object used to store multiple values in a single variable. Slide 2: Why it matters? Professionals use arrays to manage dynamic lists, like shopping carts or message feeds. Slide 3: Syntax. Arrays use square brackets and are zero-indexed. Slide 4: Example. const apps = ['Slack', 'Discord', 'VSCode']; Slide 5: Summary. Arrays are the foundation of data management in JS.",
+                "type": "lecture"
+            },
+            {
+                "id": "l4-m2",
+                "title": "Common Array Methods",
+                "summary": "Slide 1: Transforming Data. Methods like push, pop, and shift help you modify arrays. Slide 2: The .length property. Always know how many items are in your list. Slide 3: Practical Syntax. apps.push('Teams'); Slide 4: Pro Tip. Use .map and .filter for cleaner, modern code architectures. Slide 5: Summary. Mastering methods makes you a faster, more efficient developer.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 5,
+        "title": "Functional Excellence",
+        "intro": "Level 5 is where you start writing reusable, professional code. We'll master Functions, Scope, and modern ES6 syntax.",
+        "modules": [
+            {
+                "id": "l5-m1",
+                "title": "Declaring Functions",
+                "summary": "Slide 1: Reusable Logic. Functions are blocks of code designed to perform a specific task. Slide 2: Why it matters? DRY (Don't Repeat Yourself) is the golden rule of professional engineering. Slide 3: Syntax. Define a function with parameters and return values. Slide 4: Example. function greet(name) { return `Hello ${name}`; } Slide 5: Summary. Functions are the building blocks of every application.",
+                "type": "lecture"
+            },
+            {
+                "id": "l5-m2",
+                "title": "Arrow Functions & ES6",
+                "summary": "Slide 1: Modern JS Syntax. Arrow functions provide a shorter syntax for writing function expressions. Slide 2: Why it matters? It is the industry standard in frameworks like React and Vue. Slide 3: Syntax. const add = (a, b) => a + b; Slide 4: Common Pitfalls. Be careful with 'this' keyword binding in arrow functions! Slide 5: Summary. Arrow functions make your code cleaner and more modern.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 6,
+        "title": "Bug Hunt: Debugging Expert",
+        "intro": "Level 6 is a trial by fire. Professionals spend 70% of their time debugging. We'll start your first 'Bug Hunt' training here.",
+        "modules": [
+            {
+                "id": "l6-m1",
+                "title": "The Infinite Loop Trap",
+                "summary": "There is a bug in the code below that crashes the browser. Find it and fix it.",
+                "type": "bug-hunt",
+                "starter": "function countToFive() {\n  for (let i = 1; i <= 5; i--) {\n    console.log(i);\n  }\n}\ncountToFive();",
+                "solution": "i++"
+            },
+            {
+                "id": "l6-m2",
+                "title": "Chrome DevTools Pro Tips",
+                "summary": "Master breakpoints and the call stack. Real pros don't just use console.log.",
+                "type": "lecture"
+            }
+        ]
+    },
+    {
+        "level": 8,
+        "title": "Clean Code & Refactoring",
+        "intro": "Level 8 is for architects. Writing code that works is easy; writing code that lasts is the real challenge.",
+        "modules": [
+            {
+                "id": "l8-m1",
+                "title": "DRY & SOLID Principles",
+                "summary": "Maintainable code patterns used at Google and Meta.",
+                "type": "lecture"
+            },
+            {
+                "id": "l8-m2",
+                "title": "Refactoring Challenge",
+                "summary": "Refactor this messy nested logic into clean, readable functions.",
+                "type": "exercise",
+                "starter": "// Refactor me!",
+                "solution": "// Much better"
+            }
+        ]
+    },
+    {
+        "level": 10,
+        "title": "The Professional: Mastery",
+        "intro": "Final Level. You've reached the peak. Prove your mastery by building a production-ready application.",
+        "modules": [
+            {
+                "id": "l10-m1",
+                "title": "System Design for Frontend",
+                "summary": "Scaling apps to millions of users.",
+                "type": "lecture"
+            },
+            {
+                "id": "l10-m2",
+                "title": "Final Capstone: AI Dashboard",
+                "summary": "Build a real-time AI status dashboard. This project will be the hero of your professional portfolio.",
+                "type": "project",
+                "requirements": [
+                    "Implement a modular data layer",
+                    "Add real-time monitoring graphs",
+                    "Optimize for sub-second load times"
+                ]
+            }
+        ]
+    }
+]

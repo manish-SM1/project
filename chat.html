@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat — CareerAI</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="brand">Career<span>AI</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="profile.html">Profile</a>
+          <a href="recommendations.html">Recommendations</a>
+          <a href="chat.html" class="active">Chat</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <h1>Chat Advisor</h1>
+      <div class="chat">
+        <div id="chat-log" class="chat-log" aria-live="polite" aria-label="Chat transcript"></div>
+        <form id="chat-form" class="chat-form" autocomplete="off">
+          <input id="chat-input" type="text" placeholder="Ask about careers, courses, eligibility..." aria-label="Chat message">
+          <button type="submit" class="primary">Send</button>
+        </form>
+        <div class="actions">
+          <label><input type="checkbox" id="web-use" checked> Use Internet</label>
+          <button type="button" id="web-settings-btn" class="ghost">Search settings</button>
+        </div>
+        <div id="web-settings" class="card" style="display:none; margin-top:8px">
+          <h3>Internet Search Settings</h3>
+          <div class="grid">
+            <label>Provider
+              <select id="web-provider">
+                <option value="google" selected>Google (API key + CSE ID)</option>
+                <option value="duckduckgo">DuckDuckGo (no key)</option>
+                <option value="wikipedia">Wikipedia (no key)</option>
+                <option value="tavily">Tavily (API key)</option>
+              </select>
+            </label>
+            <label>API key (if required)
+              <input type="text" id="web-api-key" placeholder="Enter API key for Tavily">
+            </label>
+            <label>Google CSE ID (cx)
+              <input type="text" id="web-cx" placeholder="Enter Custom Search Engine ID (cx)">
+            </label>
+          </div>
+          <p class="help">Google requires both API key and CSE ID (cx). DuckDuckGo/Wikipedia work without keys. Providers may be subject to CORS when opened as a local file; using a local server is recommended.</p>
+          <hr>
+          <h3>AI (LLM) Settings</h3>
+          <div class="actions" style="margin-bottom:8px">
+            <label><input type="checkbox" id="ai-use"> Use AI (LLM)</label>
+          </div>
+          <div class="grid">
+            <label>LLM Provider
+              <select id="llm-provider">
+                <option value="openrouter" selected>OpenRouter</option>
+                <option value="openai">OpenAI</option>
+              </select>
+            </label>
+            <label>Model
+              <input type="text" id="llm-model" placeholder="e.g., openrouter/openai/gpt-4o-mini">
+            </label>
+            <label>LLM API Key
+              <input type="text" id="llm-api-key" placeholder="Enter your LLM API key">
+            </label>
+          </div>
+          <p class="help">Provide an API key to enable AI answers. For best results, use OpenRouter with a modern model. Responses may require a local server due to CORS.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="wrap"><small>© 2025 CareerAI</small></div></footer>
+
+    <script src="common.js" defer></script>
+    <script src="chat.js" defer></script>
+  </body>
+  </html>
+
+

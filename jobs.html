@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jobs | CareerAI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">Career<span>AI</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="recommendations.html">Recommendations</a>
+        <a href="chat.html">Chat</a>
+        <a href="courses.html">Courses</a>
+        <a href="jobs.html" class="active">Jobs</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap" style="padding:36px 0 10px 0;">
+      <h1>Your Suggested Jobs</h1>
+      <p class="muted">Based on your profile, here are roles that match your best-fit career clusters. Click a job title to find real job listings.</p>
+      <div id="jobs-grid" style="display:grid;gap:24px;margin-top:24px;"></div>
+      <hr style="margin:44px 0 24px 0; border: none; border-top: 1px solid var(--border);">
+      <h2>Explore More Job Boards</h2>
+      <p style="color:var(--muted);">Find even more job openings, including live results from Indeed (experimental, may vary by location).</p>
+      <div id="jobs-extra-section"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 CareerAI — Demo MVP</small>
+    </div>
+  </footer>
+  <script src="common.js" defer></script>
+  <script src="jobs.js" defer></script>
+</body>
+</html>

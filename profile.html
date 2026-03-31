@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile — CareerAI</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="brand">Career<span>AI</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="profile.html" class="active">Profile</a>
+          <a href="recommendations.html">Recommendations</a>
+          <a href="chat.html">Chat</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap layout-2col">
+      <div class="main-col">
+        <h1>Profile Intake</h1>
+
+        <form id="profile-form" novalidate>
+          <div class="section-card">
+          <h2>Resume</h2>
+          <p class="help">Upload your resume (PDF/TXT) or paste the text. We'll extract skills, interests, and contact info to enrich your profile.</p>
+          <div class="grid">
+            <div class="field">
+              <label for="resume-file">Upload resume file</label>
+              <input type="file" id="resume-file" accept=".pdf,.txt">
+            </div>
+            <div class="field">
+              <label for="resume-text">Or paste resume text</label>
+              <textarea id="resume-text" rows="6" placeholder="Paste your resume text here"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" id="analyze-resume-btn" class="primary">Analyze Resume</button>
+            <div id="resume-status" class="sr-only" role="status" aria-live="polite"></div>
+          </div>
+          <div class="card" style="margin-top:10px">
+            <h3>Resume Insights</h3>
+            <div id="resume-insights"><p class="help">Detected skills, interests, and details will appear here.</p></div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Personal & Links</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="full-name">Full name</label>
+              <input type="text" id="full-name" placeholder="e.g., Manish Kumar">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="name@email.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="text" id="phone" placeholder="+91 9XXXXXXXXX">
+            </div>
+            <div class="field">
+              <label for="location">Location</label>
+              <input type="text" id="location" placeholder="City, Country">
+            </div>
+            <div class="field">
+              <label for="linkedin">LinkedIn</label>
+              <input type="text" id="linkedin" placeholder="https://linkedin.com/in/username">
+            </div>
+            <div class="field">
+              <label for="github">GitHub</label>
+              <input type="text" id="github" placeholder="https://github.com/username">
+            </div>
+            <div class="field">
+              <label for="portfolio">Portfolio</label>
+              <input type="text" id="portfolio" placeholder="https://your-portfolio.com">
+            </div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Academic Scores</h2>
+          <p class="help">Provide your latest verified marks. These help calibrate your readiness.</p>
+          <div class="grid">
+            <div class="field">
+              <label for="score10">10th percentage</label>
+              <div class="input-row">
+                <input type="number" id="score10" min="0" max="100" step="0.1" placeholder="85" required>
+                <span class="suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="score12">12th percentage</label>
+              <div class="input-row">
+                <input type="number" id="score12" min="0" max="100" step="0.1" placeholder="88" required>
+                <span class="suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cgpa">UG CGPA</label>
+              <div class="input-row">
+                <input type="number" id="cgpa" min="0" max="10" step="0.01" placeholder="8.2" required>
+                <span class="suffix">/10</span>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Education & Experience</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="degree">Highest degree</label>
+              <input type="text" id="degree" placeholder="B.Tech in CSE">
+            </div>
+            <div class="field">
+              <label for="college">College/University</label>
+              <input type="text" id="college" placeholder="Your institute name">
+            </div>
+            <div class="field">
+              <label for="grad-year">Graduation year</label>
+              <input type="number" id="grad-year" placeholder="2026">
+            </div>
+            <div class="field">
+              <label for="exp-years">Total experience (years)</label>
+              <input type="number" id="exp-years" min="0" step="0.5" placeholder="0">
+            </div>
+            <div class="field">
+              <label for="last-role">Recent role</label>
+              <input type="text" id="last-role" placeholder="e.g., Intern / Software Engineer">
+            </div>
+            <div class="field">
+              <label for="last-company">Recent company</label>
+              <input type="text" id="last-company" placeholder="Company name">
+            </div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Interests</h2>
+          <p class="help">Select domains that excite you. We align recommendations accordingly.</p>
+          <div class="chips" id="interest-group">
+            <label><input type="checkbox" value="tech"> Tech</label>
+            <label><input type="checkbox" value="data"> Data/AI</label>
+            <label><input type="checkbox" value="business"> Business</label>
+            <label><input type="checkbox" value="design"> Design/UX</label>
+            <label><input type="checkbox" value="health"> Healthcare</label>
+            <label><input type="checkbox" value="research"> Research</label>
+            <label><input type="checkbox" value="finance"> Finance</label>
+            <label><input type="checkbox" value="marketing"> Marketing</label>
+            <label><input type="checkbox" value="security"> Cybersecurity</label>
+            <label><input type="checkbox" value="cloud"> Cloud/DevOps</label>
+            <label><input type="checkbox" value="mobile"> Mobile</label>
+            <label><input type="checkbox" value="iot"> IoT/Embedded</label>
+            <label><input type="checkbox" value="gaming"> Game Dev</label>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Tech Skills</h2>
+          <p class="help">Pick skills you are confident in. This boosts fit for relevant clusters.</p>
+          <div class="icon-grid" id="skills-group">
+            <label class="icon-tile"><input type="checkbox" value="python"><svg aria-hidden="true"><use href="icons.svg#python"></use></svg><span>Python</span></label>
+            <label class="icon-tile"><input type="checkbox" value="java"><svg aria-hidden="true"><use href="icons.svg#java"></use></svg><span>Java</span></label>
+            <label class="icon-tile"><input type="checkbox" value="javascript"><svg aria-hidden="true"><use href="icons.svg#js"></use></svg><span>JavaScript</span></label>
+            <label class="icon-tile"><input type="checkbox" value="typescript"><svg aria-hidden="true"><use href="icons.svg#ts"></use></svg><span>TypeScript</span></label>
+            <label class="icon-tile"><input type="checkbox" value="react"><svg aria-hidden="true"><use href="icons.svg#react"></use></svg><span>React</span></label>
+            <label class="icon-tile"><input type="checkbox" value="node"><svg aria-hidden="true"><use href="icons.svg#node"></use></svg><span>Node.js</span></label>
+            <label class="icon-tile"><input type="checkbox" value="django"><svg aria-hidden="true"><use href="icons.svg#django"></use></svg><span>Django</span></label>
+            <label class="icon-tile"><input type="checkbox" value="sql"><svg aria-hidden="true"><use href="icons.svg#sql"></use></svg><span>SQL</span></label>
+            <label class="icon-tile"><input type="checkbox" value="git"><svg aria-hidden="true"><use href="icons.svg#git"></use></svg><span>Git</span></label>
+            <label class="icon-tile"><input type="checkbox" value="docker"><svg aria-hidden="true"><use href="icons.svg#docker"></use></svg><span>Docker</span></label>
+            <label class="icon-tile"><input type="checkbox" value="kubernetes"><svg aria-hidden="true"><use href="icons.svg#k8s"></use></svg><span>Kubernetes</span></label>
+            <label class="icon-tile"><input type="checkbox" value="aws"><svg aria-hidden="true"><use href="icons.svg#aws"></use></svg><span>AWS</span></label>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Projects & Certifications</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="project-highlights">Project highlights</label>
+              <textarea id="project-highlights" rows="4" placeholder="List key projects, stacks, outcomes"></textarea>
+            </div>
+            <div class="field">
+              <label for="certifications">Certifications</label>
+              <textarea id="certifications" rows="4" placeholder="e.g., AWS CCP, Azure Fundamentals, Google Data Analytics"></textarea>
+            </div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Personality & Aptitude</h2>
+          <p class="help">Self-rate traits (1–5) and add aptitude scores (0–100).</p>
+          <div class="grid">
+            <label>Analytical
+              <input type="range" id="trait-analytical" min="1" max="5" value="3">
+            </label>
+            <label>Creative
+              <input type="range" id="trait-creative" min="1" max="5" value="3">
+            </label>
+            <label>Social
+              <input type="range" id="trait-social" min="1" max="5" value="3">
+            </label>
+            <label>Leadership
+              <input type="range" id="trait-leadership" min="1" max="5" value="3">
+            </label>
+          </div>
+          <div class="grid" style="margin-top:10px">
+            <div class="field">
+              <label for="apt-quant">Quantitative</label>
+              <div class="input-row">
+                <input type="number" id="apt-quant" min="0" max="100" step="1" value="70">
+                <span class="suffix">/100</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="apt-verbal">Verbal</label>
+              <div class="input-row">
+                <input type="number" id="apt-verbal" min="0" max="100" step="1" value="70">
+                <span class="suffix">/100</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="apt-logical">Logical</label>
+              <div class="input-row">
+                <input type="number" id="apt-logical" min="0" max="100" step="1" value="70">
+                <span class="suffix">/100</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="apt-spatial">Spatial</label>
+              <div class="input-row">
+                <input type="number" id="apt-spatial" min="0" max="100" step="1" value="70">
+                <span class="suffix">/100</span>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="section-card">
+          <h2>Preferences</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="preferred-roles">Preferred roles</label>
+              <input type="text" id="preferred-roles" placeholder="e.g., Data Analyst, Frontend Developer">
+            </div>
+            <div class="field">
+              <label for="preferred-locations">Preferred locations</label>
+              <input type="text" id="preferred-locations" placeholder="e.g., Bengaluru, Remote">
+            </div>
+          </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary">Analyze Profile</button>
+            <button type="button" id="clear" class="ghost">Clear</button>
+            <div id="form-status" class="sr-only" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+
+      <aside class="aside-col">
+        <div class="section-card">
+          <h2>Live Summary</h2>
+          <div class="summary-panel">
+            <div>
+              <div class="badge">Academic readiness</div>
+              <div class="meter"><div class="meter-bar" id="meter-academic"></div></div>
+            </div>
+            <div>
+              <div class="badge">Quant aptitude</div>
+              <div class="meter"><div class="meter-bar" id="meter-quant"></div></div>
+            </div>
+            <div>
+              <div class="badge">Logical aptitude</div>
+              <div class="meter"><div class="meter-bar" id="meter-logical"></div></div>
+            </div>
+            <div>
+              <div class="badge">Profile completeness</div>
+              <div class="meter"><div class="meter-bar" id="meter-complete"></div></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer"><div class="wrap"><small>© 2025 CareerAI</small></div></footer>
+
+    <script src="common.js" defer></script>
+    <script src="profile.js" defer></script>
+  </body>
+  </html>
+
+

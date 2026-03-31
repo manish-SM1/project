@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courses | CareerAI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">Career<span>AI</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="recommendations.html">Recommendations</a>
+        <a href="chat.html">Chat</a>
+        <a href="courses.html" class="active">Courses</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap" style="padding:32px 0 16px 0;">
+      <h1>Explore Technology Courses</h1>
+      <p class="muted">Select a technology to start text-based learning content from trusted educational websites.</p>
+      
+      <!-- BACKEND STATUS BOX - VISIBLE ALWAYS -->
+      <div id="backend-status" style="
+        padding: 20px;
+        background: linear-gradient(135deg, #1a2236 0%, #0e1525 100%);
+        border: 3px solid #2dd4bf;
+        border-radius: 12px;
+        margin: 24px 0;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+      ">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 24px;">🔌</span>
+          <div>
+            <strong style="color: #2dd4bf; font-size: 18px; display: block;">Backend Connection Status</strong>
+            <span id="status-text" style="color: #e6eaf2; font-size: 16px; margin-top: 4px; display: block;">Checking connection...</span>
+          </div>
+        </div>
+      </div>
+      <div class="icon-grid" id="courses-grid">
+        <!-- JavaScript will populate this -->
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 CareerAI — Demo MVP</small>
+    </div>
+  </footer>
+  <script src="common.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="courses.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login & Register - CareerAI</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="assets/css/monkey-login.css">
+</head>
+
+<body>
+   <!-- Animated Background Text -->
+   <div class="background-text">
+      <div class="sliding-text top">CareerAI</div>
+      <div class="sliding-text right">CareerAI</div>
+      <div class="sliding-text bottom">CareerAI</div>
+      <div class="sliding-text left">CareerAI</div>
+   </div>
+
+   <!-- Login Container -->
+   <div class="login-container">
+      <div class="login-box">
+         <!-- Robot Avatar -->
+         <div class="robot-avatar">
+            <div class="robot-container">
+               <div class="robot-head">
+                  <div class="robot-antenna"></div>
+                  <div class="robot-face">
+                     <div class="robot-eyes">
+                        <div class="robot-eye left">
+                           <div class="eye-shine"></div>
+                           <div class="robot-pupil"></div>
+                        </div>
+                        <div class="robot-eye right">
+                           <div class="eye-shine"></div>
+                           <div class="robot-pupil"></div>
+                        </div>
+                     </div>
+                     <div class="robot-mouth">
+                        <span></span><span></span><span></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="robot-hands">
+                  <div class="robot-hand left"></div>
+                  <div class="robot-hand right"></div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Logged In State -->
+         <div class="form" id="loggedInState" style="display: none;">
+            <div style="text-align: center;">
+               <div class="user-avatar">
+                  <i class="ri-user-fill"></i>
+               </div>
+               <h2 class="form-title">Welcome Back!</h2>
+               <p class="user-info" id="loggedInUserInfo">You are already logged in</p>
+               <div class="button-group" style="display: flex; flex-direction: column; gap: 10px;">
+                  <a href="learning.html" class="login-btn"
+                     style="background: var(--primary); color: var(--bg-darker); border: none;">
+                     <span>🚀 START LEARNING PATH</span>
+                     <i class="fa fa-bolt"></i>
+                  </a>
+                  <a href="index.html" class="login-btn"
+                     style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                     <span>Go to Dashboard</span>
+                     <i class="fa fa-arrow-right" style="font-size: 0.8rem;"></i>
+                  </a>
+                  <button type="button" class="login-btn logout-btn" id="logoutBtn"
+                     style="background: transparent; color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); margin-top: 10px;">
+                     <span>Logout Account</span>
+                     <i class="ri-logout-box-line"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+
+         <!-- Login Form -->
+         <form class="form" id="loginForm">
+            <h2 class="form-title">Welcome to <span class="brand">CareerAI</span></h2>
+
+            <!-- Login Method Toggle -->
+            <div class="method-toggle">
+               <button type="button" class="method-btn active" data-method="email">
+                  <i class="ri-mail-line"></i> Email
+               </button>
+               <button type="button" class="method-btn" data-method="mobile">
+                  <i class="ri-phone-line"></i> Mobile
+               </button>
+            </div>
+
+            <div class="control">
+               <label class="fa fa-envelope" id="login-icon"></label>
+               <input id="login-identifier" placeholder="Email" type="email" required autocomplete="email">
+            </div>
+            <div class="control">
+               <label class="fa fa-lock"></label>
+               <input id="login-pass" placeholder="Password" type="password" required autocomplete="current-password">
+               <i class="ri-eye-off-line password-eye" id="login-eye"></i>
+            </div>
+
+            <div class="form-options">
+               <div class="checkbox-group">
+                  <input type="checkbox" id="login-check">
+                  <label for="login-check">Remember me</label>
+               </div>
+               <a href="#" class="forgot-password" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+
+            <div id="login-error" class="error-message"></div>
+
+            <button type="submit" class="login-btn">
+               <span>Login</span>
+               <i class="fa fa-arrow-right"></i>
+            </button>
+
+            <p class="form-footer">
+               Don't have an account? <a href="#" id="showRegister">Register</a>
+            </p>
+         </form>
+
+         <!-- Register Form -->
+         <form class="form" id="registerForm" style="display: none;">
+            <h2 class="form-title">Join <span class="brand">CareerAI</span></h2>
+
+            <!-- Register Method Toggle -->
+            <div class="method-toggle">
+               <button type="button" class="method-btn active" data-method="email">
+                  <i class="ri-mail-line"></i> Email
+               </button>
+               <button type="button" class="method-btn" data-method="mobile">
+                  <i class="ri-phone-line"></i> Mobile
+               </button>
+            </div>
+
+            <div class="control">
+               <label class="fa fa-user"></label>
+               <input id="register-name" placeholder="Full Name" type="text" required autocomplete="name">
+            </div>
+            <div class="control">
+               <label class="fa fa-envelope" id="register-icon"></label>
+               <input id="register-identifier" placeholder="Email" type="email" required autocomplete="email">
+            </div>
+            <div class="control">
+               <label class="fa fa-lock"></label>
+               <input id="register-pass" placeholder="Password" type="password" required autocomplete="new-password">
+               <i class="ri-eye-off-line password-eye" id="register-eye"></i>
+            </div>
+            <div class="control">
+               <label class="fa fa-lock"></label>
+               <input id="register-confirm-pass" placeholder="Confirm Password" type="password" required
+                  autocomplete="new-password">
+               <i class="ri-eye-off-line password-eye" id="register-confirm-eye"></i>
+            </div>
+
+            <div class="checkbox-group" style="margin-bottom: 1rem;">
+               <input type="checkbox" id="register-check" required>
+               <label for="register-check">I agree to the Terms & Conditions</label>
+            </div>
+
+            <div id="register-error" class="error-message"></div>
+
+            <button type="submit" class="login-btn">
+               <span>Register</span>
+               <i class="fa fa-arrow-right"></i>
+            </button>
+
+            <p class="form-footer">
+               Already have an account? <a href="#" id="showLogin">Login</a>
+            </p>
+         </form>
+
+         <!-- Forgot Password Form -->
+         <form class="form" id="forgotPasswordForm" style="display: none;">
+            <h2 class="form-title">Reset Password</h2>
+
+            <!-- Forgot Password Method Toggle -->
+            <div class="method-toggle">
+               <button type="button" class="method-btn active" data-method="email">
+                  <i class="ri-mail-line"></i> Email
+               </button>
+               <button type="button" class="method-btn" data-method="mobile">
+                  <i class="ri-phone-line"></i> Mobile
+               </button>
+            </div>
+
+            <div class="control">
+               <label class="fa fa-envelope" id="forgot-icon"></label>
+               <input id="forgot-identifier" placeholder="Email" type="email" required>
+            </div>
+
+            <div id="forgot-error" class="error-message"></div>
+            <div id="forgot-success" class="success-message"></div>
+
+            <button type="submit" class="login-btn">
+               <span>Send OTP</span>
+               <i class="fa fa-paper-plane"></i>
+            </button>
+
+            <p class="form-footer">
+               Remember your password? <a href="#" id="backToLogin">Back to Login</a>
+            </p>
+         </form>
+
+         <!-- OTP Verification Form -->
+         <form class="form" id="otpVerificationForm" style="display: none;">
+            <h2 class="form-title">Verify OTP</h2>
+            <p class="otp-description">
+               We've sent a 6-digit OTP to <strong id="otp-email-display"></strong>
+            </p>
+
+            <div class="otp-inputs">
+               <input type="text" class="otp-input" id="otp-1" maxlength="1" pattern="[0-9]" required>
+               <input type="text" class="otp-input" id="otp-2" maxlength="1" pattern="[0-9]" required>
+               <input type="text" class="otp-input" id="otp-3" maxlength="1" pattern="[0-9]" required>
+               <input type="text" class="otp-input" id="otp-4" maxlength="1" pattern="[0-9]" required>
+               <input type="text" class="otp-input" id="otp-5" maxlength="1" pattern="[0-9]" required>
+               <input type="text" class="otp-input" id="otp-6" maxlength="1" pattern="[0-9]" required>
+            </div>
+
+            <div class="otp-footer">
+               <p class="otp-resend">
+                  Didn't receive OTP? <a href="#" id="resend-otp">Resend</a>
+               </p>
+               <p id="otp-timer" class="otp-timer"></p>
+            </div>
+
+            <div id="otp-error" class="error-message"></div>
+
+            <button type="submit" class="login-btn">
+               <span>Verify OTP</span>
+               <i class="fa fa-check"></i>
+            </button>
+
+            <p class="form-footer">
+               <a href="#" id="backToForgot">Change Email</a>
+            </p>
+         </form>
+
+         <!-- Reset Password Form -->
+         <form class="form" id="resetPasswordForm" style="display: none;">
+            <h2 class="form-title">Set New Password</h2>
+
+            <div class="control">
+               <label class="fa fa-lock"></label>
+               <input id="reset-pass" placeholder="New Password" type="password" required autocomplete="new-password">
+               <i class="ri-eye-off-line password-eye" id="reset-eye"></i>
+            </div>
+            <div class="control">
+               <label class="fa fa-lock"></label>
+               <input id="reset-confirm-pass" placeholder="Confirm New Password" type="password" required
+                  autocomplete="new-password">
+               <i class="ri-eye-off-line password-eye" id="reset-confirm-eye"></i>
+            </div>
+
+            <div id="reset-error" class="error-message"></div>
+
+            <button type="submit" class="login-btn">
+               <span>Reset Password</span>
+               <i class="fa fa-check"></i>
+            </button>
+
+            <p class="form-footer">
+               <a href="#" id="backToLoginFromReset">Back to Login</a>
+            </p>
+         </form>
+      </div>
+   </div>
+
+   <!--=============== EMAILJS (for sending emails) ===============-->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+   <!--=============== AUTH JS ===============-->
+   <script src="auth.js"></script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
+
+   <!--=============== MONKEY ANIMATION JS ===============-->
+   <script src="assets/js/monkey-login.js"></script>
+</body>
+
+</html>

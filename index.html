@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Career Guidance</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="home">
+  <div id="auth-overlay"
+    style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.45);backdrop-filter:blur(1px);">
+  </div>
+  <div id="auth-modal" class="modal" aria-modal="true" role="dialog" style="display:none;">
+    <div class="modal-content">
+      <h2 id="modal-title">Login</h2>
+      <form id="login-form">
+        <div class="modal-login-fields">
+          <label>Email
+            <input type="email" id="login-email" autocomplete="username" required />
+          </label>
+          <label>Password
+            <input type="password" id="login-password" autocomplete="current-password" required />
+          </label>
+        </div>
+        <div class="modal-signup-fields" style="display:none;">
+          <label>First Name
+            <input type="text" id="signup-first" required />
+          </label>
+          <label>Last Name
+            <input type="text" id="signup-last" required />
+          </label>
+          <label>Email
+            <input type="email" id="signup-email" required />
+          </label>
+          <label>Password
+            <input type="password" id="signup-password" required />
+          </label>
+        </div>
+        <div id="login-error" style="color:#FC6464;margin:8px 0;min-height:16px;"></div>
+        <button type="submit" class="btn primary" id="auth-submit-btn">Login</button>
+      </form>
+      <p style="margin-top:12px;text-align:center;">
+        <span class="modal-login-link">Don't have an account? <a href="#" id="show-signup">Create one</a></span>
+        <span class="modal-signup-link" style="display:none;">Already have an account? <a href="#" id="show-login">Log
+            in</a></span>
+      </p>
+    </div>
+  </div>
+  <header class="site-header home-overwave">
+    <div class="wrap">
+      <a href="index.html" class="brand">Career<span>AI</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="recommendations.html">Recommendations</a>
+        <a href="chat.html">Chat</a>
+        <a href="login.html" id="login-nav-link" style="display: none;">Login</a>
+        <span id="user-menu" class="user-menu">
+          <a href="profile.html" id="user-profile-icon" title="User Profile">
+            <svg height="22" width="22" aria-hidden="true">
+              <use href="icons.svg#user" />
+            </svg>
+          </a>
+          <a href="#" id="user-settings-icon" title="User Settings">
+            <svg height="22" width="22" aria-hidden="true">
+              <use href="icons.svg#git" />
+            </svg>
+          </a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wave-header" aria-hidden="true">
+      <div class="wave-wrap">
+        <svg class="wave" viewBox="0 0 1440 300" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+
+              <stop offset="0%" stop-color="#9333ea" />
+              <stop offset="50%" stop-color="#2563eb" />
+              <stop offset="100%" stop-color="#0ea5a4" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#waveGradient)"
+            d="M0,40 C200,100 400,-10 600,30 C800,70 1000,200 1200,180 C1320,168 1380,140 1440,120 L1440,0 L0,0 Z" />
+          <path fill="url(#waveGradient)" opacity="0.65"
+            d="M0,120 C240,170 480,40 720,90 C960,140 1200,260 1440,200 L1440,0 L0,0 Z" />
+        </svg>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Find your best-fit career with AI.</h1>
+          <p>Analyze academics, interests, skills, traits and aptitude. Get tailored career clusters, roles, higher
+            education paths and courses.</p>
+          <div class="cta">
+            <a class="btn primary" href="profile.html">Start Analysis</a>
+            <a class="btn ghost" href="recommendations.html">See Recommendations</a>
+          </div>
+          <ul class="hero-bullets">
+            <li>Smart classification model</li>
+            <li>Expanded tech skills with icons</li>
+            <li>Responsive and accessible design</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="globe"></div>
+          <div class="cards">
+            <div class="card">AI/ML</div>
+            <div class="card">Software</div>
+            <div class="card">Design</div>
+            <div class="card">Business</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="carousel-section">
+      <div class="wrap">
+        <div class="carousel" role="region" aria-label="About slides">
+          <div class="carousel-track" id="carousel-track">
+            <article class="slide">
+              <h3>Profile Analysis</h3>
+              <p>We combine academics, interests, skills, traits and aptitude to form a holistic profile.</p>
+            </article>
+            <article class="slide">
+              <h3>AI Recommendations</h3>
+              <p>Weighted classification ranks career clusters and suggests roles, education and courses.</p>
+            </article>
+            <article class="slide">
+              <h3>Advisor Chat</h3>
+              <p>AI-like, typo-aware chat provides eligibility, roadmaps, and skill guidance.</p>
+            </article>
+            <article class="slide">
+              <h3>Portfolio Focus</h3>
+              <p>Practical projects and internships drive outcomes. Build, publish, iterate.</p>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <button class="btn ghost prev" id="carousel-prev" aria-label="Previous slide">‹</button>
+            <button class="btn ghost next" id="carousel-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="dots" id="carousel-dots" aria-label="Slide indicators"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-section" aria-label="Technologies">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>Python</span>
+          <span>Java</span>
+          <span>JavaScript</span>
+          <span>TypeScript</span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Django</span>
+          <span>SQL</span>
+          <span>Git</span>
+          <span>Docker</span>
+          <span>Kubernetes</span>
+          <span>AWS</span>
+          <span>Azure</span>
+          <span>GCP</span>
+          <span>Figma</span>
+          <span>TensorFlow</span>
+          <span>PyTorch</span>
+          <span>Pandas</span>
+          <span>NumPy</span>
+          <span>Power BI</span>
+        </div>
+        <div class="marquee-track" aria-hidden="true">
+          <span>Python</span>
+          <span>Java</span>
+          <span>JavaScript</span>
+          <span>TypeScript</span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Django</span>
+          <span>SQL</span>
+          <span>Git</span>
+          <span>Docker</span>
+          <span>Kubernetes</span>
+          <span>AWS</span>
+          <span>Azure</span>
+          <span>GCP</span>
+          <span>Figma</span>
+          <span>TensorFlow</span>
+          <span>PyTorch</span>
+          <span>Pandas</span>
+          <span>NumPy</span>
+          <span>Power BI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="wrap feature-grid">
+        <div class="feature">
+          <h3>Profile Intake</h3>
+          <p>Academics, interests, tech skills with icons, traits and aptitude.</p>
+        </div>
+        <div class="feature">
+          <h3>AI Recommendations</h3>
+          <p>Top 3 career clusters with roles, higher education and courses.</p>
+        </div>
+        <div class="feature">
+          <h3>Chat Advisor</h3>
+          <p>Ask about roadmaps, eligibility and skill-building guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mastery-roadmap">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Mastery Roadmap: Scratch to Pro</h2>
+          <p>Follow our structured path to go from a complete beginner to a professional engineer.</p>
+        </div>
+
+        <div class="roadmap-container">
+          <div class="roadmap-line"></div>
+
+          <div class="roadmap-step" data-level="1">
+            <div class="step-marker">1</div>
+            <div class="step-content">
+              <h3>The Foundation</h3>
+              <p>Master the building blocks: HTML, CSS, and basic Logic. Understand how the web works.</p>
+              <div class="step-badges">
+                <span class="badge">Basics</span>
+                <span class="badge">Web 101</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="3">
+            <div class="step-marker">3</div>
+            <div class="step-content">
+              <h3>Core Programming</h3>
+              <p>Dive into JavaScript and Data Structures. Learn to think like a programmer.</p>
+              <div class="step-badges">
+                <span class="badge">JavaScript</span>
+                <span class="badge">Algorithms</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="5">
+            <div class="step-marker">5</div>
+            <div class="step-content">
+              <h3>Modern Frameworks</h3>
+              <p>Build complex UIs with React and manage state like a pro.</p>
+              <div class="step-badges">
+                <span class="badge">React</span>
+                <span class="badge">State Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="7">
+            <div class="step-marker">7</div>
+            <div class="step-content">
+              <h3>Full Stack Mastery</h3>
+              <p>Connect the dots with Node.js, Express, and Databases.</p>
+              <div class="step-badges">
+                <span class="badge">Backend</span>
+                <span class="badge">APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step pro" data-level="10">
+            <div class="step-marker"><i class="fas fa-crown"></i></div>
+            <div class="step-content">
+              <h3>The Professional</h3>
+              <p>System Design, Cloud (AWS/Azure), and DevOps (Docker/K8s). Ready for the industry.</p>
+              <div class="step-badges">
+                <span class="badge">Cloud</span>
+                <span class="badge">System Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-cta">
+          <a href="courses.html" class="btn primary">View Full Curriculum</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mastery-roadmap">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Mastery Roadmap: Scratch to Pro</h2>
+          <p>Follow our structured path to go from a complete beginner to a professional engineer.</p>
+        </div>
+
+        <div class="roadmap-container">
+          <div class="roadmap-line"></div>
+
+          <div class="roadmap-step" data-level="1">
+            <div class="step-marker">1</div>
+            <div class="step-content">
+              <h3>The Foundation</h3>
+              <p>Master the building blocks: HTML, CSS, and basic Logic. Understand how the web works.</p>
+              <div class="step-badges">
+                <span class="badge">Basics</span>
+                <span class="badge">Web 101</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="3">
+            <div class="step-marker">3</div>
+            <div class="step-content">
+              <h3>Core Programming</h3>
+              <p>Dive into JavaScript and Data Structures. Learn to think like a programmer.</p>
+              <div class="step-badges">
+                <span class="badge">JavaScript</span>
+                <span class="badge">Algorithms</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="5">
+            <div class="step-marker">5</div>
+            <div class="step-content">
+              <h3>Modern Frameworks</h3>
+              <p>Build complex UIs with React and manage state like a pro.</p>
+              <div class="step-badges">
+                <span class="badge">React</span>
+                <span class="badge">State Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-level="7">
+            <div class="step-marker">7</div>
+            <div class="step-content">
+              <h3>Full Stack Mastery</h3>
+              <p>Connect the dots with Node.js, Express, and Databases.</p>
+              <div class="step-badges">
+                <span class="badge">Backend</span>
+                <span class="badge">APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-step pro" data-level="10">
+            <div class="step-marker"><i class="fas fa-crown"></i></div>
+            <div class="step-content">
+              <h3>The Professional</h3>
+              <p>System Design, Cloud (AWS/Azure), and DevOps (Docker/K8s). Ready for the industry.</p>
+              <div class="step-badges">
+                <span class="badge">Cloud</span>
+                <span class="badge">System Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-cta">
+          <a href="courses.html" class="btn primary">View Full Curriculum</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-icons">
+      <div class="wrap">
+        <h2>Explore Tech Skills</h2>
+        <div class="icon-grid">
+          <a href="learning.html?course=html5" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#html5"></use>
+            </svg><span>HTML5</span></a>
+          <a href="learning.html?course=css3" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#css3"></use>
+            </svg><span>CSS3</span></a>
+          <a href="learning.html?course=js" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#js"></use>
+            </svg><span>JavaScript</span></a>
+          <a href="learning.html?course=ts" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#ts"></use>
+            </svg><span>TypeScript</span></a>
+          <a href="learning.html?course=python" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#python"></use>
+            </svg><span>Python</span></a>
+          <a href="learning.html?course=c" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#c"></use>
+            </svg><span>C</span></a>
+          <a href="learning.html?course=cpp" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#cpp"></use>
+            </svg><span>C++</span></a>
+          <a href="learning.html?course=react" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#react"></use>
+            </svg><span>React</span></a>
+          <a href="learning.html?course=node" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#node"></use>
+            </svg><span>Node.js</span></a>
+          <a href="learning.html?course=django" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#django"></use>
+            </svg><span>Django</span></a>
+          <a href="learning.html?course=sql" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#sql"></use>
+            </svg><span>SQL</span></a>
+          <a href="learning.html?course=mongodb" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#mongodb"></use>
+            </svg><span>MongoDB</span></a>
+          <a href="learning.html?course=postgres" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#postgres"></use>
+            </svg><span>PostgreSQL</span></a>
+          <a href="learning.html?course=git" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#git"></use>
+            </svg><span>Git</span></a>
+          <a href="learning.html?course=docker" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#docker"></use>
+            </svg><span>Docker</span></a>
+          <a href="learning.html?course=k8s" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#k8s"></use>
+            </svg><span>Kubernetes</span></a>
+          <a href="learning.html?course=aws" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#aws"></use>
+            </svg><span>AWS</span></a>
+          <a href="learning.html?course=azure" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#azure"></use>
+            </svg><span>Azure</span></a>
+          <a href="learning.html?course=gcp" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#gcp"></use>
+            </svg><span>GCP</span></a>
+          <a href="learning.html?course=tensorflow" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#tensorflow"></use>
+            </svg><span>TensorFlow</span></a>
+          <a href="learning.html?course=pytorch" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#pytorch"></use>
+            </svg><span>PyTorch</span></a>
+          <a href="learning.html?course=pandas" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#pandas"></use>
+            </svg><span>Pandas</span></a>
+          <a href="learning.html?course=numpy" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#numpy"></use>
+            </svg><span>NumPy</span></a>
+          <a href="learning.html?course=powerbi" class="icon-tile"><svg aria-hidden="true">
+              <use href="icons.svg#powerbi"></use>
+            </svg><span>Power BI</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 CareerAI — Demo MVP</small>
+    </div>
+  </footer>
+
+  <script src="common.js" defer></script>
+  <script src="motion.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
